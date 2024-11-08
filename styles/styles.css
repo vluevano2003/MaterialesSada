@@ -1,0 +1,169 @@
+/* Estilos generales */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  background-color: #f9f9f9;
+  text-align: center;
+}
+
+/* Estilos del contenedor de navegación */
+nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1em;
+  background-color: #fff;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Estilos del logo y título */
+.logo-titulo {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.logo {
+  width: 50px;
+  height: auto;
+}
+
+.logo-titulo h1 {
+  margin: 0;
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+
+.menu {
+  list-style: none;
+  display: flex;
+  gap: 20px;
+  flex: 1;
+  justify-content: center;
+}
+
+.menu li a {
+  text-decoration: none;
+  color: #333;
+  font-weight: bold;
+  padding: 0.5em;
+  border-radius: 5px;
+  transition: color 0.3s;
+}
+
+.menu li a:hover {
+  color: #E30000;
+}
+
+.carousel {
+  position: relative;
+  width: 800px;
+  height: 400px;
+  margin: 0 auto;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #f0f0f0;
+}
+
+.slide {
+  display: none;
+  width: 100%;
+  height: 100%;
+}
+
+.slide img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.slide:first-child {
+  display: block;
+}
+
+.carousel-wrapper {
+  position: relative;
+  width: 800px;
+  height: 400px;
+  margin: 0 auto;
+}
+
+.carousel-button {
+  position: absolute;
+  top: 50%;
+  background: rgba(0, 0, 0, 0.6);
+  color: #fff;
+  border: none;
+  font-size: 2rem;
+  cursor: pointer;
+  transform: translateY(-50%);
+  padding: 10px;
+  z-index: 10;
+}
+
+.prev {
+  left: 10px;
+}
+
+.next {
+  right: 10px;
+}
+
+.slide:first-child {
+  display: block;
+}
+
+.carousel-indicators {
+  position: absolute;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 10px;
+  z-index: 10;
+}
+
+.indicator {
+  width: 10px;
+  height: 10px;
+  background-color: #ddd;
+  border-radius: 50%;
+  transition: all 0.3s;
+}
+
+.indicator.active {
+  width: 15px;
+  height: 15px;
+  background-color: #333;
+}
+
+.login-button {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  background-color: #E30000;
+  color: #fff;
+  padding: 0.5em 1em;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-weight: bold;
+  transition: background-color 0.3s;
+  margin-left: auto;
+}
+
+.login-button:hover {
+  background-color: #b30000;
+}
+
+.user-icon {
+  width: 20px;
+  height: 20px;
+}
