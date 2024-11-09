@@ -4,10 +4,12 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Materiales SADA</title>
-  <link rel="stylesheet" href="/styles/styles.css">
+  <link rel="stylesheet" href="/styles/general.css">
+  <link rel="stylesheet" href="/styles/index.css">
 </head>
 <body>
 
+  <!--Navegación-->
   <nav>
     <div class="logo-titulo">
       <img src="/images/logo.jpeg" alt="Logo de Materiales SADA" class="logo">
@@ -19,11 +21,12 @@
       <li><a href="informacion.html">Conócenos</a></li>
     </ul>
     <button class="login-button">
-      <img src="/images/inicio-sesion.png" alt="Icono de usuario" class="user-icon">
+      <img src="/images/inicio-sesion.png" alt="Icono de usuario" class="icono-usuario">
       Iniciar sesión
     </button>
   </nav>
 
+  <!--Carrusel-->
   <section class="imagen-principal">
     <div class="carousel-wrapper">
       <div class="carousel">
@@ -46,8 +49,52 @@
       </div>
     </div>
   </section>
-  
 
+  <!--Productos destacados-->
+  <section class="productos-destacados">
+    <h2>Destacados</h2>
+    <div class="productos-container">
+
+      <div class="producto">
+        <img src="/images/saco-cemento.jpg" alt="Saco de cemento">
+        <h3>Saco de cemento</h3>
+        <p>Descripción</p>
+        <span class="precio">$999.00</span>
+      </div>
+      <div class="producto">
+        <img src="/images/block-concreto.jpg" alt="Block de concreto">
+        <h3>Block de concreto</h3>
+        <p>Descripción</p>
+        <span class="precio">$999.00</span>
+      </div>
+      <div class="producto">
+        <img src="/images/tornillo.jpg" alt="Tornillo">
+        <h3>Tornillo</h3>
+        <p>Descripción</p>
+        <span class="precio">$799.00</span>
+      </div>
+
+    </div>
+  </section>
+
+  <!--Footer-->
+  <footer>
+    <div class="footer-container">
+      <div class="footer-logo">
+        <img src="/images/logo.jpeg" alt="Logo de Materiales SADA" class="footer-logo-img">
+        <h2>Materiales SADA</h2>
+      </div>
+      <div class="footer-info">
+        <p>Dirección: Lázaro Cárdenas No. 1705 Col. Puerto México Coatzacoalcos, Ver.</p>
+        <p>Teléfono: (+52) 9211101741</p>
+        <p>Email: m2gise@hotmail.com</p>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>&copy; 2024 Materiales SADA. Todos los derechos reservados.</p>
+    </div>
+  </footer>  
+  
   <script src="/scripts/main.js"></script>
 </body>
 </html>

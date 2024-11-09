@@ -4,10 +4,14 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>SADA - Información de la Empresa</title>
-  <link rel="stylesheet" href="/styles/styles.css">
+  <link rel="stylesheet" href="/styles/general.css">
+  <link rel="stylesheet" href="/styles/info.css">
+  <script src="/scripts/mapa.js"></script>
+  <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC4x91_pB8yQ7kPM4KA3iF_kyTWJIqlKGY&callback=initMap&loading=async" async defer></script>
 </head>
 <body>
   
+  <!-- Navegación -->
   <nav>
     <div class="logo-titulo">
       <img src="/images/logo.jpeg" alt="Logo de Materiales SADA" class="logo">
@@ -19,10 +23,50 @@
       <li><a href="informacion.html">Conócenos</a></li>
     </ul>
     <button class="login-button">
-      <img src="/images/inicio-sesion.png" alt="Icono de usuario" class="user-icon">
+      <img src="/images/inicio-sesion.png" alt="Icono de usuario" class="icono-usuario">
       Iniciar sesión
     </button>
   </nav>
+  
+  <div class="info-container">
+    <section class="info-empresa">
+      <h2>Sobre Nosotros</h2>
+      <p>En Materiales SADA, nos especializamos en ofrecer los mejores materiales para construcción en la región de Coatzacoalcos, Veracruz. Contamos con una amplia gama de productos de alta calidad y un excelente servicio al cliente.</p>
+      
+      <h3>Dirección:</h3>
+      <p>Lázaro Cárdenas No. 1705, Col. Puerto México, Coatzacoalcos, Ver.</p>
+      
+      <h3>Teléfono:</h3>
+      <p>(+52) 9211101741</p>
+      
+      <h3>Email:</h3>
+      <p>m2gise@hotmail.com</p>
+    </section>
+    
+    <div class="map-container">
+      <iframe src="https://www.google.com/maps/embed?pb=!4v1731131892797!6m8!1m7!1sfwuwLXagDnJ6r_cinxHV7w!2m2!1d18.15076709905163!2d-94.4428635153618!3f177.3487840321954!4f-0.29297102906518546!5f0.7820865974627469" width="400" height="300" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+    </div>
+  </div>
 
+  <!-- Mapa -->
+  <div id="map" style="width: 100%; height: 400px; margin: 2em 0;"></div>
+
+  <!-- Footer -->
+  <footer>
+    <div class="footer-container">
+      <div class="footer-logo">
+        <img src="/images/logo.jpeg" alt="Logo de Materiales SADA" class="footer-logo-img">
+        <h2>Materiales SADA</h2>
+      </div>
+      <div class="footer-info">
+        <p>Dirección: Lázaro Cárdenas No. 1705 Col. Puerto México Coatzacoalcos, Ver.</p>
+        <p>Teléfono: (+52) 9211101741</p>
+        <p>Email: m2gise@hotmail.com</p>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>&copy; 2024 Materiales SADA. Todos los derechos reservados.</p>
+    </div>
+  </footer>  
 </body>
 </html>
