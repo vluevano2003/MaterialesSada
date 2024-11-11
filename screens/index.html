@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,6 +8,7 @@
   <link rel="stylesheet" href="/styles/general.css">
   <link rel="stylesheet" href="/styles/index.css">
 </head>
+
 <body>
 
   <!--Navegación-->
@@ -53,29 +55,9 @@
   <!--Productos destacados-->
   <section class="productos-destacados">
     <h2>Destacados</h2>
-    <div class="productos-container">
-
-      <div class="producto">
-        <img src="/images/saco-cemento.jpg" alt="Saco de cemento">
-        <h3>Saco de cemento</h3>
-        <p>Descripción</p>
-        <span class="precio">$999.00</span>
-      </div>
-      <div class="producto">
-        <img src="/images/block-concreto.jpg" alt="Block de concreto">
-        <h3>Block de concreto</h3>
-        <p>Descripción</p>
-        <span class="precio">$999.00</span>
-      </div>
-      <div class="producto">
-        <img src="/images/tornillo.jpg" alt="Tornillo">
-        <h3>Tornillo</h3>
-        <p>Descripción</p>
-        <span class="precio">$799.00</span>
-      </div>
-
-    </div>
+    <div id="productos-destacados-container" class="productos-container"></div>
   </section>
+
 
   <!--Footer-->
   <footer>
@@ -93,8 +75,23 @@
     <div class="footer-bottom">
       <p>&copy; 2024 Materiales SADA. Todos los derechos reservados.</p>
     </div>
-  </footer>  
-  
-  <script src="/scripts/main.js"></script>
+  </footer>
+
+  <!-- Modal para detalles del producto -->
+  <div id="producto-modal" class="modal">
+    <div class="modal-content">
+      <span id="cerrar-modal" class="cerrar">&times;</span>
+      <img id="modal-imagen" src="" alt="Imagen del producto" class="modal-imagen">
+      <h3 id="modal-nombre"></h3>
+      <p id="modal-precio"></p>
+      <p id="modal-categoria"></p>
+      <p id="modal-marca"></p>
+      <p id="modal-disponibilidad"></p>
+    </div>
+  </div>
+
+
+  <script src="/scripts/index.js"></script>
 </body>
+
 </html>

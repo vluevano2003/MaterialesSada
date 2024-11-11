@@ -1,31 +1,30 @@
 .info-container {
-    display: flex;
-    justify-content: space-between;
-    align-items: flex-start;
-    margin: 2em 2em;
-  }
-  
-  .map-container {
-    flex: 1;
-  }
-  
-  .info-empresa {
-    flex: 1;
-  }
-  
-  iframe {
-    border: none;
-  }
-  
-  .info-empresa h3 {
-    margin-top: 1em;
-    font-size: 1.2em;
-    color: #000000;
-  }
-  
-  .info-empresa p {
-    font-size: 1em;
-    color: #000000;
-    line-height: 1.6;
-  }
-  
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin: 2em 2em;
+}
+
+.map-container {
+  flex: 1;
+}
+
+.info-empresa {
+  flex: 1;
+}
+
+iframe {
+  border: none;
+}
+
+.info-empresa h3 {
+  margin-top: 1em;
+  font-size: 1.2em;
+  color: #000000;
+}
+
+.info-empresa p {
+  font-size: 1em;
+  color: #000000;
+  line-height: 1.6;
+}
