@@ -1,5 +1,6 @@
 import { auth } from "./firebaseConfig.js";
 import { signInWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/10.6.0/firebase-auth.js";
+import { sendPasswordResetEmail } from "https://www.gstatic.com/firebasejs/10.6.0/firebase-auth.js";
 
 document.querySelector("#login-form").addEventListener("submit", loginUser);
 
@@ -42,3 +43,25 @@ function getErrorMessage(errorCode) {
   };
   return errorMessages[errorCode] || "Ocurrió un error inesperado. Por favor, intenta de nuevo.";
 }
+
+//Recuperar contraseña
+const forgotPasswordLink = document.getElementById('forgot-password-link');
+
+forgotPasswordLink.addEventListener('click', async (e) => {
+  e.preventDefault();
+
+  // Mostrar prompt para ingresar el correo
+  const email = prompt('Ingresa tu correo electrónico para recuperar la contraseña:');
+  
+  if (!email) {
+    alert('No ingresaste ningún correo.');
+    return;
+  }
+
+  try {
+    await sendPasswordResetEmail(auth, email);
+    alert('Se ha enviado un correo para restablecer tu contraseña.');
+  } catch (error) {
+    alert(`Error al enviar el correo: ${error.message}`);
+  }
+});
