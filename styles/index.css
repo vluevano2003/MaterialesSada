@@ -1,5 +1,5 @@
 /* Estilos del Carrusel */
-.carousel-wrapper {
+.anuncios {
   position: relative;
   width: 800px;
   height: 400px;
@@ -29,10 +29,6 @@
   object-fit: cover;
 }
 
-.slide:first-child {
-  display: block;
-}
-
 .carousel-button {
   position: absolute;
   top: 50%;
@@ -54,7 +50,7 @@
   right: 10px;
 }
 
-.carousel-indicators {
+.indicators {
   position: absolute;
   bottom: 20px;
   left: 50%;
@@ -78,19 +74,19 @@
   background-color: #333;
 }
 
-/* Estilos de Productos Destacados */
-.productos-destacados {
+/* Estilos de Destacados */
+.destacados {
   padding: 2em;
   background-color: #fff;
 }
 
-.productos-destacados h2 {
+.destacados h2 {
   font-size: 2rem;
   color: #333;
   margin-bottom: 1em;
 }
 
-.productos-container {
+.productos {
   display: flex;
   flex-wrap: wrap;
   gap: 20px;
@@ -118,16 +114,6 @@
   border-radius: 10px;
 }
 
-.producto h3 {
-  font-size: 1.2rem;
-  margin: 0.5em 0;
-}
-
-.producto p {
-  color: #666;
-  font-size: 0.9rem;
-}
-
 .precio {
   display: block;
   margin-top: 0.5em;
@@ -136,8 +122,8 @@
   color: #E30000;
 }
 
-/* Estilos para el modal */
-.modal {
+/* Pop-up del producto */
+.pop-up {
   display: none;
   position: fixed;
   z-index: 1000;
@@ -148,7 +134,7 @@
   background-color: rgba(0, 0, 0, 0.7);
 }
 
-.modal-content {
+.pop-up-content {
   background-color: #fff;
   margin: 10% auto;
   padding: 20px;
@@ -159,7 +145,7 @@
   box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
 }
 
-.cerrar {
+.cerrar-pop-up {
   color: #aaa;
   float: right;
   font-size: 28px;
@@ -167,11 +153,11 @@
   cursor: pointer;
 }
 
-.cerrar:hover {
+.cerrar-pop-up:hover {
   color: #000;
 }
 
-.modal-imagen {
+.pop-up-image {
   max-width: 100%;
   height: auto;
   border-radius: 10px;

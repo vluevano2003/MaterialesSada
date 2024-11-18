@@ -1,15 +1,11 @@
-.info-container {
+.container {
   display: flex;
   justify-content: space-between;
   align-items: flex-start;
   margin: 2em 2em;
 }
 
-.map-container {
-  flex: 1;
-}
-
-.info-empresa {
+.info {
   flex: 1;
 }
 
@@ -17,14 +13,24 @@ iframe {
   border: none;
 }
 
-.info-empresa h3 {
+h3 {
   margin-top: 1em;
   font-size: 1.2em;
   color: #000000;
 }
 
-.info-empresa p {
+p {
   font-size: 1em;
   color: #000000;
   line-height: 1.6;
+}
+
+.location{
+  width: 100%; 
+  height: 400px; 
+  margin: 2em 0
+}
+
+.map {
+  flex: 1;
 }

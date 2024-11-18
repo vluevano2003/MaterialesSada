@@ -1,3 +1,4 @@
+/*Filtros*/
 .menu li {
   display: inline;
   margin: 0 10px;
@@ -9,7 +10,27 @@
   margin: 20px;
 }
 
-.productos-container {
+button {
+  padding: 10px;
+  background-color: #005BC2;
+  color: white;
+  border: none;
+  cursor: pointer;
+}
+
+/* Lista de Productos */
+.container {
+  padding: 2em;
+  background-color: #fff;
+}
+
+.container h2 {
+  font-size: 2rem;
+  color: #333;
+  margin-bottom: 1em;
+}
+
+.productos {
   display: flex;
   flex-wrap: wrap;
   gap: 20px;
@@ -17,27 +38,36 @@
 }
 
 .producto {
-  border: 1px solid #ccc;
-  padding: 10px;
-  width: 200px;
+  width: 300px;
+  padding: 1em;
+  background-color: #f9f9f9;
+  border: 1px solid #ddd;
+  border-radius: 10px;
   text-align: center;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s;
+}
+
+.producto:hover {
+  transform: scale(1.05);
 }
 
 .producto img {
-  max-width: 100%;
+  width: 100%;
   height: auto;
+  border-radius: 10px;
 }
 
-button {
-  padding: 10px;
-  background-color: #007BFF;
-  color: white;
-  border: none;
-  cursor: pointer;
+.precio {
+  display: block;
+  margin-top: 0.5em;
+  font-size: 1.1rem;
+  font-weight: bold;
+  color: #E30000;
 }
 
-/* Estilos para el modal */
-.modal {
+/* Pop-up del producto */
+.pop-up {
   display: none;
   position: fixed;
   z-index: 1000;
@@ -48,7 +78,7 @@ button {
   background-color: rgba(0, 0, 0, 0.7);
 }
 
-.modal-content {
+.pop-up-content {
   background-color: #fff;
   margin: 10% auto;
   padding: 20px;
@@ -59,7 +89,7 @@ button {
   box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
 }
 
-.cerrar {
+.cerrar-pop-up {
   color: #aaa;
   float: right;
   font-size: 28px;
@@ -67,11 +97,11 @@ button {
   cursor: pointer;
 }
 
-.cerrar:hover {
+.cerrar-pop-up:hover {
   color: #000;
 }
 
-.modal-imagen {
+.pop-up-image {
   max-width: 100%;
   height: auto;
   border-radius: 10px;

@@ -10,10 +10,10 @@
 </head>
 
 <body>
-
+  
   <!--Navegación-->
   <nav>
-    <div class="logo-titulo">
+    <div class="banner">
       <img src="/images/logo.jpeg" alt="Logo de Materiales SADA" class="logo">
       <h1>Materiales SADA</h1>
     </div>
@@ -22,48 +22,58 @@
       <li><a href="productos.html">Productos</a></li>
       <li><a href="informacion.html">Conócenos</a></li>
     </ul>
-    <button class="login-button">
-      <img src="/images/inicio-sesion.png" alt="Icono de usuario" class="icono-usuario">
+    <button class="login-button" onclick="window.location.href='login.html'">
+      <img src="/images/inicio-sesion.png" alt="Icono de usuario" class="user-icon">
       Iniciar sesión
     </button>
   </nav>
 
   <!--Carrusel-->
-  <section class="imagen-principal">
-    <div class="carousel-wrapper">
-      <div class="carousel">
-        <div class="slide">
-          <img src="/images/anuncio1.jpg" alt="Anuncio 1">
-        </div>
-        <div class="slide">
-          <img src="/images/anuncio2.jpg" alt="Anuncio 2">
-        </div>
-        <div class="slide">
-          <img src="/images/anuncio3.jpg" alt="Anuncio 3">
-        </div>
+  <section class="anuncios">
+    <div class="carousel">
+      <div class="slide">
+        <img src="/images/anuncio1.jpg" alt="Anuncio 1">
       </div>
-      <button class="carousel-button prev">‹</button>
-      <button class="carousel-button next">›</button>
-      <div class="carousel-indicators">
-        <span class="indicator"></span>
-        <span class="indicator"></span>
-        <span class="indicator"></span>
+      <div class="slide">
+        <img src="/images/anuncio2.jpg" alt="Anuncio 2">
       </div>
+      <div class="slide">
+        <img src="/images/anuncio3.jpg" alt="Anuncio 3">
+      </div>
+    </div>
+    <button class="carousel-button prev">‹</button>
+    <button class="carousel-button next">›</button>
+    <div class="indicators">
+      <span class="indicator"></span>
+      <span class="indicator"></span>
+      <span class="indicator"></span>
     </div>
   </section>
 
   <!--Productos destacados-->
-  <section class="productos-destacados">
+  <section class="destacados">
     <h2>Destacados</h2>
-    <div id="productos-destacados-container" class="productos-container"></div>
+    <div id="destacados-container" class="productos"></div>
   </section>
 
+  <!-- Pop-up para detalles del producto -->
+  <div id="producto" class="pop-up">
+    <div class="pop-up-content">
+      <span id="cerrar" class="cerrar-pop-up">&times;</span>
+      <img id="imagen" src="" alt="Imagen del producto" class="pop-up-image">
+      <h3 id="nombre"></h3>
+      <p id="precio"></p>
+      <p id="categoria"></p>
+      <p id="marca"></p>
+      <p id="disponibilidad"></p>
+    </div>
+  </div>
 
   <!--Footer-->
   <footer>
     <div class="footer-container">
       <div class="footer-logo">
-        <img src="/images/logo.jpeg" alt="Logo de Materiales SADA" class="footer-logo-img">
+        <img src="/images/logo.jpeg" alt="Logo de Materiales SADA" class="footer-image">
         <h2>Materiales SADA</h2>
       </div>
       <div class="footer-info">
@@ -76,20 +86,6 @@
       <p>&copy; 2024 Materiales SADA. Todos los derechos reservados.</p>
     </div>
   </footer>
-
-  <!-- Modal para detalles del producto -->
-  <div id="producto-modal" class="modal">
-    <div class="modal-content">
-      <span id="cerrar-modal" class="cerrar">&times;</span>
-      <img id="modal-imagen" src="" alt="Imagen del producto" class="modal-imagen">
-      <h3 id="modal-nombre"></h3>
-      <p id="modal-precio"></p>
-      <p id="modal-categoria"></p>
-      <p id="modal-marca"></p>
-      <p id="modal-disponibilidad"></p>
-    </div>
-  </div>
-
 
   <script src="/scripts/index.js"></script>
 </body>

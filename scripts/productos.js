@@ -1,17 +1,9 @@
+//Lista de productos
 document.addEventListener('DOMContentLoaded', () => {
   const productos = [
     { nombre: 'Saco de Cemento', categoria: 'Construcción', marca: 'Marca A', precio: 999, imagen: '/images/saco-cemento.jpg', disponibilidad: 'Disponible' },
     { nombre: 'Block de Concreto', categoria: 'Construcción', marca: 'Marca B', precio: 1200, imagen: '/images/block-concreto.jpg', disponibilidad: 'Disponible' },
     { nombre: 'Tornillo', categoria: 'Herramientas', marca: 'Marca C', precio: 150, imagen: '/images/tornillo.jpg', disponibilidad: 'Agotado' },
-    // Generamos más productos dinámicamente para llegar a 50.
-    ...Array.from({ length: 47 }, (_, i) => ({
-      nombre: `Producto ${i + 4}`,
-      categoria: i % 2 === 0 ? 'Construcción' : 'Accesorios',
-      marca: i % 3 === 0 ? 'Marca A' : i % 3 === 1 ? 'Marca B' : 'Marca C',
-      precio: 500 + i * 10,
-      imagen: `/images/producto${i + 4}.jpg`,
-      disponibilidad: i % 5 === 0 ? 'Agotado' : 'Disponible'
-    }))
   ];
 
   const filtroNombre = document.getElementById('filtro-nombre');
@@ -19,17 +11,16 @@ document.addEventListener('DOMContentLoaded', () => {
   const filtroMarca = document.getElementById('filtro-marca');
   const filtroPrecio = document.getElementById('filtro-precio');
   const botonFiltrar = document.getElementById('boton-filtrar');
-  const botonQuitarFiltros = document.getElementById('boton-quitar-filtros');
+  const botonQuitarFiltros = document.getElementById('quitar-filtros');
   const productosContainer = document.getElementById('productos-container');
-
-  const modal = document.getElementById('producto-modal');
-  const cerrarModal = document.getElementById('cerrar-modal');
-  const modalImagen = document.getElementById('modal-imagen');
-  const modalNombre = document.getElementById('modal-nombre');
-  const modalPrecio = document.getElementById('modal-precio');
-  const modalCategoria = document.getElementById('modal-categoria');
-  const modalMarca = document.getElementById('modal-marca');
-  const modalDisponibilidad = document.getElementById('modal-disponibilidad');
+  const popUp = document.getElementById('producto');
+  const cerrarPopUp = document.getElementById('cerrar');
+  const popUpImagen = document.getElementById('imagen');
+  const popUpNombre = document.getElementById('nombre');
+  const popUpPrecio = document.getElementById('precio');
+  const popUpCategoria = document.getElementById('categoria');
+  const popUpMarca = document.getElementById('marca');
+  const popUpDisponibilidad = document.getElementById('disponibilidad');
 
   // Función para mostrar los productos
   const mostrarProductos = (productos) => {
@@ -47,21 +38,21 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   };
 
-  // Función para mostrar los detalles del producto en el modal
+  // Función para mostrar los detalles del producto en el pop-up
   const mostrarDetallesProducto = (index) => {
     const producto = productos[index];
-    modalImagen.src = producto.imagen;
-    modalNombre.textContent = producto.nombre;
-    modalPrecio.textContent = `Precio: $${producto.precio}.00`;
-    modalCategoria.textContent = `Categoría: ${producto.categoria}`;
-    modalMarca.textContent = `Marca: ${producto.marca}`;
-    modalDisponibilidad.textContent = `Disponibilidad: ${producto.disponibilidad}`;
-    modal.style.display = 'block';
+    popUpImagen.src = producto.imagen;
+    popUpNombre.textContent = producto.nombre;
+    popUpPrecio.textContent = `Precio: $${producto.precio}.00`;
+    popUpCategoria.textContent = `Categoría: ${producto.categoria}`;
+    popUpMarca.textContent = `Marca: ${producto.marca}`;
+    popUpDisponibilidad.textContent = `Disponibilidad: ${producto.disponibilidad}`;
+    popUp.style.display = 'block';
   };
 
-  // Función para cerrar el modal
+  // Función para cerrar el pop-up
   const cerrarModalFuncion = () => {
-    modal.style.display = 'none';
+    popUp.style.display = 'none';
   };
 
   // Filtrar productos
@@ -93,10 +84,10 @@ document.addEventListener('DOMContentLoaded', () => {
 
   botonFiltrar.addEventListener('click', filtrarProductos);
   botonQuitarFiltros.addEventListener('click', quitarFiltros);
-  cerrarModal.addEventListener('click', cerrarModalFuncion);
+  cerrarPopUp.addEventListener('click', cerrarModalFuncion);
 
   window.addEventListener('click', (event) => {
-    if (event.target === modal) {
+    if (event.target === popUp) {
       cerrarModalFuncion();
     }
   });
