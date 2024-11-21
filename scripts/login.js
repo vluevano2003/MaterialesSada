@@ -24,7 +24,7 @@ async function loginUser(event) {
 
     // Redirigir a la vista administrador
     setTimeout(() => {
-      window.location.href = "dashboard.html";
+      window.location.href = "/screens/admin.html";
     }, 2000);
   } catch (error) {
     console.log(error.code);

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Administración - Materiales SADA</title>
+    <link rel="stylesheet" href="/styles/admin.css">
+</head>
+<body>
+    <header>
+        <nav class="navbar">
+            <ul>
+                <li><a href="#" id="inventory-link" data-page="inventario.html" class="active">Gestión de Inventario</a></li>
+                <li><a href="#" id="users-link" data-page="usuarios.html">Gestión de Usuarios</a></li>
+            </ul>
+            <div class="user-info">
+                <span id="welcome-message">Bienvenido, <span id="user-name"></span></span>
+                <button id="account-link" data-page="cuenta.html">Datos de la Cuenta</button>
+                <button id="logout-button">Cerrar Sesión</button>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <iframe id="module-frame" src="/screens/inventario.html" frameborder="0"></iframe>
+    </main>
+
+    <script type="module" src="/scripts/admin.js"></script>
+</body>
+</html>

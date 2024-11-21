@@ -1,0 +1,72 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f9f9f9;
+}
+
+.module-container {
+    max-width: 600px;
+    margin: 40px auto;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    background-color: white;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+fieldset {
+    border: 1px solid #005BC2;
+    margin-bottom: 25px;  /* Aumentado para más espacio entre formularios */
+    padding: 15px;
+}
+
+legend {
+    color: #005BC2;
+    font-weight: bold;
+}
+
+label {
+    display: block;
+    margin-bottom: 8px;
+    color: #333;
+}
+
+input {
+    width: 100%;
+    padding: 8px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 14px;
+}
+
+button {
+    background-color: #005BC2;
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+button:hover {
+    background-color: #00408e;
+}
+
+#general-form button {
+    margin-bottom: 50px;
+}
+
+.readonly {
+    background-color: #e0e0e0;
+    cursor: not-allowed;
+    color: #555;
+}
+
+#message {
+    margin-top: 15px;
+    font-weight: bold;
+    text-align: center;
+}
