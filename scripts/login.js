@@ -1,12 +1,13 @@
-import { auth } from "./firebaseConfig.js";
+import { auth, db } from "./firebaseConfig.js";
 import { signInWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/10.6.0/firebase-auth.js";
 import { sendPasswordResetEmail } from "https://www.gstatic.com/firebasejs/10.6.0/firebase-auth.js";
+import { doc, getDoc } from "https://www.gstatic.com/firebasejs/10.6.0/firebase-firestore.js";
 
 document.querySelector("#login-form").addEventListener("submit", loginUser);
 
 // Función para iniciar sesión
 async function loginUser(event) {
-  event.preventDefault(); // Hace que el formulario funcione correctamente
+  event.preventDefault(); // NO BORRAR - Hace que el formulario funcione correctamente
 
   const email = document.getElementById("username").value;
   const password = document.getElementById("password").value;
@@ -19,13 +20,33 @@ async function loginUser(event) {
   try {
     // Intentar iniciar sesión
     const userCredential = await signInWithEmailAndPassword(auth, email, password);
-    alertMessage.textContent = "Inicio de sesión exitoso. Redireccionando...";
-    alertMessage.classList.add("success");
 
-    // Redirigir a la vista administrador
-    setTimeout(() => {
-      window.location.href = "/screens/admin.html";
-    }, 2000);
+    // Obtener el ID del usuario para verificar su estado
+    const user = userCredential.user;
+    const userRef = doc(db, "Usuarios", user.uid);
+    const userDoc = await getDoc(userRef);
+
+    if (userDoc.exists()) {
+      const userData = userDoc.data();
+
+      // Verifica si la cuenta está activa
+      if (!userData.activo) {
+        alertMessage.textContent = "Tu cuenta está desactivada. Contacta con el administrador.";
+        alertMessage.classList.add("error");
+        return;
+      }
+
+      alertMessage.textContent = "Inicio de sesión exitoso. Redireccionando...";
+      alertMessage.classList.add("success");
+
+      // Redirigir a la vista administrador
+      setTimeout(() => {
+        window.location.href = "/screens/admin.html";
+      }, 2000);
+    } else {
+      alertMessage.textContent = "No se encontró el usuario en la base de datos.";
+      alertMessage.classList.add("error");
+    }
   } catch (error) {
     console.log(error.code);
     const errorMessage = getErrorMessage(error.code);
@@ -44,13 +65,12 @@ function getErrorMessage(errorCode) {
   return errorMessages[errorCode] || "Ocurrió un error inesperado. Por favor, intenta de nuevo.";
 }
 
-//Recuperar contraseña
+// Recuperar contraseña
 const forgotPasswordLink = document.getElementById('forgot-password-link');
 
 forgotPasswordLink.addEventListener('click', async (e) => {
   e.preventDefault();
 
-  // Mostrar prompt para ingresar el correo
   const email = prompt('Ingresa tu correo electrónico para recuperar la contraseña:');
   
   if (!email) {

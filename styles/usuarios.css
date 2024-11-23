@@ -1,43 +1,150 @@
 body {
     font-family: Arial, sans-serif;
-    background-color: #fff;
     margin: 0;
     padding: 0;
+    background-color: #f4f4f4;
 }
 
-h2 {
+h1 {
     text-align: center;
     color: #005BC2;
     margin-top: 20px;
 }
 
-.menu {
-    display: flex;
-    justify-content: center;
-    gap: 10px;
-    margin: 20px 0;
+.user-management {
+    width: 90%;
+    margin: 0 auto;
+    padding: 20px;
+    background: white;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 
-.menu button {
-    background-color: #E30000;
+.content-container {
+    display: flex;
+    justify-content: space-between;
+    gap: 20px;
+}
+
+/* Estilos del formulario */
+.user-form,
+.user-list {
+    flex: 1;
+    background: #f9f9f9;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.user-form form {
+    display: flex;
+    flex-direction: column;
+}
+
+.user-form label {
+    margin: 10px 0 5px;
+    font-weight: bold;
+}
+
+.user-form input,
+.user-form select {
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-size: 1rem;
+}
+
+.user-form button {
+    padding: 10px;
+    background-color: #005BC2;
     color: white;
+    font-size: 1rem;
     border: none;
-    padding: 10px 20px;
     border-radius: 5px;
     cursor: pointer;
-    font-weight: bold;
     transition: background-color 0.3s;
 }
 
-.menu button:hover {
+.user-form button:hover {
+    background-color: #003f8a;
+}
+
+/* Estilos de la tabla de usuarios */
+.user-list table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.user-list table thead {
+    background-color: #005BC2;
+    color: white;
+}
+
+.user-list table th,
+.user-list table td {
+    text-align: left;
+    padding: 10px;
+    border-bottom: 1px solid #ddd;
+}
+
+/* Botones de acción para eliminar usuarios */
+.delete-button {
+    padding: 5px 10px;
+    background-color: #E30000;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.delete-button:hover {
     background-color: #C20000;
 }
 
-#user-management {
-    max-width: 900px;
-    margin: 0 auto;
-    padding: 20px;
-    border: 1px solid #ddd;
-    border-radius: 10px;
-    background-color: #f9f9f9;
+/* Estilo base para los botones de cambio de estado de cuenta */
+button.toggle-button {
+    padding: 8px 16px;
+    font-size: 14px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.2s;
+}
+
+button.toggle-button.active {
+    background-color: #c82333;
+    color: white;
+}
+
+button.toggle-button.active:hover {
+    background-color: #dc3545;
+    transform: scale(1.05);
+}
+
+button.toggle-button.inactive {
+    background-color: #218838;
+    color: white;
+}
+
+button.toggle-button.inactive:hover {
+    background-color: #218838;
+    transform: scale(1.05);
+}
+
+/* Mensajes de éxito y error */
+#message-container {
+    margin: 10px 0;
+    padding: 10px;
+    font-size: 1rem;
+    text-align: center;
+}
+
+.message-success {
+    color: green;
+}
+
+.message-error {
+    color: red;
 }
