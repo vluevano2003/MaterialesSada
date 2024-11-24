@@ -1,13 +1,62 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Gestión de Inventario</title>
-    <link rel="stylesheet" href="/styles/module.css">
+    <title>Administrador de Inventario</title>
+    <link rel="stylesheet" href="/styles/inventario.css">
 </head>
+
 <body>
-    <h1>Gestión de Inventario</h1>
-    <p>Aquí puedes administrar los productos del inventario.</p>
+    <h1>Administrador de Inventario</h1>
+    <div class="user-management">
+        <div class="content-container">
+
+            <!-- Formulario para agregar/editar productos -->
+            <div class="user-form">
+                <h2>Agregar/Editar Producto</h2>
+                <form id="producto-form">
+                    <input type="hidden" id="producto-id" />
+                    <label for="nombre">Nombre del producto:</label>
+                    <input type="text" id="nombre" placeholder="Nombre del producto" required />
+                    <label for="descripcion">Descripción:</label>
+                    <textarea id="descripcion" placeholder="Descripción del producto" required></textarea>
+                    <label for="precio">Precio:</label>
+                    <input type="number" id="precio" placeholder="Precio" required />
+                    <label for="marca">Marca:</label>
+                    <input type="text" id="marca" placeholder="Marca" required />
+                    <label for="categoria">Categoría:</label>
+                    <input type="text" id="categoria" placeholder="Categoría" required />
+                    <label for="disponibilidad">Disponibilidad inicial:</label>
+                    <input type="number" id="disponibilidad" placeholder="Cantidad disponible" required />
+                    <label for="foto">Imagen del producto:</label>
+                    <input type="file" id="foto" accept="image/*" />
+                    <button type="submit">Guardar</button>
+                </form>
+            </div>
+
+            <!-- Lista de productos -->
+            <div class="user-list">
+                <h2>Lista de Productos</h2>
+                <table id="productos-table">
+                    <thead>
+                        <tr>
+                            <th>Nombre</th>
+                            <th>Descripción</th>
+                            <th>Precio</th>
+                            <th>Marca</th>
+                            <th>Categoría</th>
+                            <th>Foto</th>
+                            <th>Acciones</th>
+                        </tr>
+                    </thead>
+                    <tbody></tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+    <script type="module" src="/scripts/inventario.js"></script>
 </body>
+
 </html>

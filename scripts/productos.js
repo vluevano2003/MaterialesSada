@@ -1,11 +1,7 @@
-//Lista de productos
-document.addEventListener('DOMContentLoaded', () => {
-  const productos = [
-    { nombre: 'Saco de Cemento', categoria: 'Construcción', marca: 'Marca A', precio: 999, imagen: '/images/saco-cemento.jpg', disponibilidad: 'Disponible' },
-    { nombre: 'Block de Concreto', categoria: 'Construcción', marca: 'Marca B', precio: 1200, imagen: '/images/block-concreto.jpg', disponibilidad: 'Disponible' },
-    { nombre: 'Tornillo', categoria: 'Herramientas', marca: 'Marca C', precio: 150, imagen: '/images/tornillo.jpg', disponibilidad: 'Agotado' },
-  ];
+import { db } from "./firebaseConfig.js";
+import { collection, onSnapshot } from "https://www.gstatic.com/firebasejs/10.6.0/firebase-firestore.js";
 
+document.addEventListener('DOMContentLoaded', () => {
   const filtroNombre = document.getElementById('filtro-nombre');
   const filtroCategoria = document.getElementById('filtro-categoria');
   const filtroMarca = document.getElementById('filtro-marca');
@@ -21,6 +17,59 @@ document.addEventListener('DOMContentLoaded', () => {
   const popUpCategoria = document.getElementById('categoria');
   const popUpMarca = document.getElementById('marca');
   const popUpDisponibilidad = document.getElementById('disponibilidad');
+  const popUpDescripcion = document.getElementById('descripcion');
+  
+  const productosRef = collection(db, "productos");
+  const productos = [];
+  const categorias = new Set();
+  const marcas = new Set();
+
+  // Obtener los productos de Firestore
+  onSnapshot(productosRef, (snapshot) => {
+    productos.length = 0; 
+    snapshot.forEach((doc) => {
+      const producto = doc.data();
+      productos.push({
+        id: doc.id,
+        nombre: producto.nombre,
+        descripcion: producto.descripcion,
+        categoria: producto.categoria,
+        marca: producto.marca,
+        precio: producto.precio,
+        imagen: producto.foto || '/images/default.jpeg',
+        disponibilidad: producto.disponibilidad,
+      });
+      
+      // Agregar la categoría y la marca a los filtros
+      categorias.add(producto.categoria);
+      marcas.add(producto.marca);
+    });
+
+    actualizarFiltros();
+    mostrarProductos(productos);
+  });
+
+  // Función para actualizar los filtros
+  const actualizarFiltros = () => {
+    filtroCategoria.innerHTML = '<option value="">Todas las categorías</option>';
+    filtroMarca.innerHTML = '<option value="">Todas las marcas</option>';
+
+    // Añadir las categorías dinámicamente
+    categorias.forEach(categoria => {
+      const option = document.createElement('option');
+      option.value = categoria;
+      option.textContent = categoria;
+      filtroCategoria.appendChild(option);
+    });
+
+    // Añadir las marcas dinámicamente
+    marcas.forEach(marca => {
+      const option = document.createElement('option');
+      option.value = marca;
+      option.textContent = marca;
+      filtroMarca.appendChild(option);
+    });
+  };
 
   // Función para mostrar los productos
   const mostrarProductos = (productos) => {
@@ -29,10 +78,11 @@ document.addEventListener('DOMContentLoaded', () => {
       const productoDiv = document.createElement('div');
       productoDiv.classList.add('producto');
       productoDiv.innerHTML = `
-          <img src="${producto.imagen}" alt="${producto.nombre}">
-          <h3>${producto.nombre}</h3>
-          <span class="precio">$${producto.precio}.00</span>
-        `;
+        <img src="${producto.imagen}" alt="${producto.nombre}">
+        <h3>${producto.nombre}</h3>
+        <p>${producto.descripcion}</p>
+        <span class="precio">$${producto.precio}.00</span>
+      `;
       productoDiv.addEventListener('click', () => mostrarDetallesProducto(index));
       productosContainer.appendChild(productoDiv);
     });
@@ -47,6 +97,7 @@ document.addEventListener('DOMContentLoaded', () => {
     popUpCategoria.textContent = `Categoría: ${producto.categoria}`;
     popUpMarca.textContent = `Marca: ${producto.marca}`;
     popUpDisponibilidad.textContent = `Disponibilidad: ${producto.disponibilidad}`;
+    popUpDescripcion.textContent = `Descripción: ${producto.descripcion}`; 
     popUp.style.display = 'block';
   };
 
@@ -91,7 +142,4 @@ document.addEventListener('DOMContentLoaded', () => {
       cerrarModalFuncion();
     }
   });
-
-  // Mostrar todos los productos al cargar la página
-  mostrarProductos(productos);
 });
