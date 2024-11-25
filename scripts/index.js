@@ -14,6 +14,7 @@ const popUpPrecio = document.getElementById('precio');
 const popUpCategoria = document.getElementById('categoria');
 const popUpMarca = document.getElementById('marca');
 const popUpDisponibilidad = document.getElementById('disponibilidad');
+const popUpDescripcion = document.getElementById('descripcion');
 
 //Función para cambiar entre anuncios
 function showSlide(index) {
@@ -48,17 +49,37 @@ prevButton.addEventListener('click', prevSlide);
 showSlide(currentSlide);
 
 //Destacados
+import { db } from "./firebaseConfig.js";
+import { collection, query, orderBy, limit, onSnapshot } from "https://www.gstatic.com/firebasejs/10.6.0/firebase-firestore.js";
+
 document.addEventListener('DOMContentLoaded', () => {
-  const productosDestacados = [
-    { nombre: 'Saco de Cemento', categoria: 'Construcción', marca: 'Marca A', precio: 999, imagen: '/images/saco-cemento.jpg', disponibilidad: 'Disponible' },
-    { nombre: 'Block de Concreto', categoria: 'Construcción', marca: 'Marca B', precio: 1200, imagen: '/images/block-concreto.jpg', disponibilidad: 'Disponible' },
-    { nombre: 'Tornillo', categoria: 'Herramientas', marca: 'Marca C', precio: 150, imagen: '/images/tornillo.jpg', disponibilidad: 'Agotado' },
-  ];
+  let productosDestacados = [];
+
+  // Obtener productos destacados desde Firebase
+  const productosRef = collection(db, "productos");
+  const destacadosQuery = query(productosRef, orderBy("disponibilidad", "desc"), limit(3));
+
+  onSnapshot(destacadosQuery, (snapshot) => {
+    productosDestacados = [];
+    snapshot.forEach((doc) => {
+      const producto = doc.data();
+      productosDestacados.push({
+        nombre: producto.nombre,
+        categoria: producto.categoria,
+        marca: producto.marca,
+        precio: producto.precio,
+        imagen: producto.foto || '/images/default.jpeg',
+        disponibilidad: producto.disponibilidad,
+        descripcion: producto.descripcion,
+      });
+    });
+    mostrarProductosDestacados(); // Actualizar la vista con los productos obtenidos
+  });
 
   // Función para mostrar los productos destacados
   const mostrarProductosDestacados = () => {
     destacados.innerHTML = '';
-    productosDestacados.forEach((producto, index) => {
+    productosDestacados.forEach((producto) => {
       const productoDiv = document.createElement('div');
       productoDiv.classList.add('producto');
       productoDiv.innerHTML = `
@@ -79,6 +100,7 @@ document.addEventListener('DOMContentLoaded', () => {
     popUpCategoria.textContent = `Categoría: ${producto.categoria}`;
     popUpMarca.textContent = `Marca: ${producto.marca}`;
     popUpDisponibilidad.textContent = `Disponibilidad: ${producto.disponibilidad}`;
+    popUpDescripcion.textContent = `Descripción: ${producto.descripcion}`;
     popUp.style.display = 'block';
   };
 
@@ -92,7 +114,4 @@ document.addEventListener('DOMContentLoaded', () => {
       cerrarModalFuncion();
     }
   });
-
-  // Mostrar los productos destacados al cargar la página
-  mostrarProductosDestacados();
 });
