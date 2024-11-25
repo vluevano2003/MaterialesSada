@@ -47,7 +47,8 @@ h1 {
 }
 
 .user-form input,
-.user-form textarea {
+.user-form textarea,
+.user-form select {
     padding: 10px;
     margin-bottom: 15px;
     border: 1px solid #ddd;
@@ -64,28 +65,68 @@ h1 {
     border-radius: 5px;
     cursor: pointer;
     transition: background-color 0.3s;
+    margin-bottom: 10px;
 }
 
 .user-form button:hover {
     background-color: #003f8a;
 }
 
-/* Estilos de la tabla de usuarios */
+.user-form #cancelar-edicion {
+    background-color: #e0e0e0;
+    color: #333;
+}
+
+.user-form #cancelar-edicion:hover {
+    background-color: #b0b0b0;
+}
+
+/* Estilos de la tabla de productos */
 .user-list table {
     width: 100%;
     border-collapse: collapse;
+    height: 800px;
+    overflow-y: auto;
+    display: block;
+    text-align: center;
 }
 
 .user-list table thead {
     background-color: #005BC2;
     color: white;
+    position: sticky;
+    top: 0;
+    z-index: 1;
 }
 
 .user-list table th,
 .user-list table td {
-    text-align: left;
     padding: 10px;
     border-bottom: 1px solid #ddd;
+}
+
+.user-list table .editar,
+.user-list table .eliminar {
+    padding: 8px 12px;
+    background-color: #005BC2;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin: 5px;
+    transition: background-color 0.3s;
+}
+
+.user-list table .editar:hover {
+    background-color: #003f8a;
+}
+
+.user-list table .eliminar {
+    background-color: #d9534f;
+}
+
+.user-list table .eliminar:hover {
+    background-color: #c9302c;
 }
 
 .user-list img {

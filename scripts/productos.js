@@ -18,7 +18,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const popUpMarca = document.getElementById('marca');
   const popUpDisponibilidad = document.getElementById('disponibilidad');
   const popUpDescripcion = document.getElementById('descripcion');
-  
+
   const productosRef = collection(db, "productos");
   const productos = [];
   const categorias = new Set();
@@ -26,7 +26,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // Obtener los productos de Firestore
   onSnapshot(productosRef, (snapshot) => {
-    productos.length = 0; 
+    productos.length = 0;
     snapshot.forEach((doc) => {
       const producto = doc.data();
       productos.push({
@@ -39,7 +39,7 @@ document.addEventListener('DOMContentLoaded', () => {
         imagen: producto.foto || '/images/default.jpeg',
         disponibilidad: producto.disponibilidad,
       });
-      
+
       // Agregar la categoría y la marca a los filtros
       categorias.add(producto.categoria);
       marcas.add(producto.marca);
@@ -74,30 +74,29 @@ document.addEventListener('DOMContentLoaded', () => {
   // Función para mostrar los productos
   const mostrarProductos = (productos) => {
     productosContainer.innerHTML = '';
-    productos.forEach((producto, index) => {
+    productos.forEach((producto) => {
       const productoDiv = document.createElement('div');
       productoDiv.classList.add('producto');
       productoDiv.innerHTML = `
-        <img src="${producto.imagen}" alt="${producto.nombre}">
-        <h3>${producto.nombre}</h3>
-        <p>${producto.descripcion}</p>
-        <span class="precio">$${producto.precio}.00</span>
-      `;
-      productoDiv.addEventListener('click', () => mostrarDetallesProducto(index));
+      <img src="${producto.imagen}" alt="${producto.nombre}">
+      <h3>${producto.nombre}</h3>
+      <p>${producto.descripcion}</p>
+      <span class="precio">$${producto.precio}</span>
+    `;
+      productoDiv.addEventListener('click', () => mostrarDetallesProducto(producto));
       productosContainer.appendChild(productoDiv);
     });
   };
 
   // Función para mostrar los detalles del producto en el pop-up
-  const mostrarDetallesProducto = (index) => {
-    const producto = productos[index];
+  const mostrarDetallesProducto = (producto) => {
     popUpImagen.src = producto.imagen;
     popUpNombre.textContent = producto.nombre;
-    popUpPrecio.textContent = `Precio: $${producto.precio}.00`;
+    popUpPrecio.textContent = `Precio: $${producto.precio}`;
     popUpCategoria.textContent = `Categoría: ${producto.categoria}`;
     popUpMarca.textContent = `Marca: ${producto.marca}`;
     popUpDisponibilidad.textContent = `Disponibilidad: ${producto.disponibilidad}`;
-    popUpDescripcion.textContent = `Descripción: ${producto.descripcion}`; 
+    popUpDescripcion.textContent = `Descripción: ${producto.descripcion}`;
     popUp.style.display = 'block';
   };
 

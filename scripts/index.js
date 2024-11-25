@@ -1,4 +1,6 @@
-//Desplazamiento del carrusel
+import { db } from "./firebaseConfig.js";
+import { collection, query, orderBy, limit, onSnapshot } from "https://www.gstatic.com/firebasejs/10.6.0/firebase-firestore.js";
+
 let currentSlide = 0;
 const slides = document.querySelectorAll('.slide');
 const totalSlides = slides.length;
@@ -48,10 +50,7 @@ prevButton.addEventListener('click', prevSlide);
 
 showSlide(currentSlide);
 
-//Destacados
-import { db } from "./firebaseConfig.js";
-import { collection, query, orderBy, limit, onSnapshot } from "https://www.gstatic.com/firebasejs/10.6.0/firebase-firestore.js";
-
+//Función para mostrar los detalles del producto en el pop-up
 document.addEventListener('DOMContentLoaded', () => {
   let productosDestacados = [];
 
@@ -73,7 +72,7 @@ document.addEventListener('DOMContentLoaded', () => {
         descripcion: producto.descripcion,
       });
     });
-    mostrarProductosDestacados(); // Actualizar la vista con los productos obtenidos
+    mostrarProductosDestacados();
   });
 
   // Función para mostrar los productos destacados
@@ -85,7 +84,7 @@ document.addEventListener('DOMContentLoaded', () => {
       productoDiv.innerHTML = `
         <img src="${producto.imagen}" alt="${producto.nombre}">
         <h3>${producto.nombre}</h3>
-        <span class="precio">$${producto.precio}.00</span>
+        <span class="precio">$${producto.precio}</span>
       `;
       productoDiv.addEventListener('click', () => mostrarDetallesProducto(producto));
       destacados.appendChild(productoDiv);
@@ -96,7 +95,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const mostrarDetallesProducto = (producto) => {
     popUpImagen.src = producto.imagen;
     popUpNombre.textContent = producto.nombre;
-    popUpPrecio.textContent = `Precio: $${producto.precio}.00`;
+    popUpPrecio.textContent = `Precio: $${producto.precio}`;
     popUpCategoria.textContent = `Categoría: ${producto.categoria}`;
     popUpMarca.textContent = `Marca: ${producto.marca}`;
     popUpDisponibilidad.textContent = `Disponibilidad: ${producto.disponibilidad}`;

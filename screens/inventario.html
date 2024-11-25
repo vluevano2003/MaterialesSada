@@ -25,15 +25,19 @@
                     <label for="precio">Precio:</label>
                     <input type="number" id="precio" placeholder="Precio" required />
                     <label for="marca">Marca:</label>
-                    <input type="text" id="marca" placeholder="Marca" required />
+                    <select id="marca" required></select>
+                    <input type="text" id="nueva-marca" placeholder="Agregar nueva marca" />
                     <label for="categoria">Categoría:</label>
-                    <input type="text" id="categoria" placeholder="Categoría" required />
-                    <label for="disponibilidad">Disponibilidad inicial:</label>
-                    <input type="number" id="disponibilidad" placeholder="Cantidad disponible" required />
-                    <label for="foto">Imagen del producto:</label>
+                    <select id="categoria" required></select>
+                    <input type="text" id="nueva-categoria" placeholder="Agregar nueva categoría" />
+                    <label for="disponibilidad">Disponibilidad:</label>
+                    <input type="number" id="disponibilidad" placeholder="Disponibilidad" required />
+                    <label for="foto">Foto:</label>
                     <input type="file" id="foto" accept="image/*" />
                     <button type="submit">Guardar</button>
+                    <button type="button" id="cancelar-edicion">Cancelar</button>
                 </form>
+                
             </div>
 
             <!-- Lista de productos -->
@@ -47,6 +51,7 @@
                             <th>Precio</th>
                             <th>Marca</th>
                             <th>Categoría</th>
+                            <th>Disponibilidad</th>
                             <th>Foto</th>
                             <th>Acciones</th>
                         </tr>
