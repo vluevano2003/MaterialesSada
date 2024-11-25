@@ -81,6 +81,10 @@ h1 {
     background-color: #b0b0b0;
 }
 
+textarea {
+    resize: none;
+}
+
 /* Estilos de la tabla de productos */
 .user-list table {
     width: 100%;
