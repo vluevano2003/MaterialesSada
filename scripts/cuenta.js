@@ -67,6 +67,10 @@ auth.onAuthStateChanged(async (user) => {
             }
         });
 
+        
+
+  
+
         // Cambiar contraseña
         passwordForm.addEventListener("submit", async (e) => {
             e.preventDefault();

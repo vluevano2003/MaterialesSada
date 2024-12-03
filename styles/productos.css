@@ -37,8 +37,13 @@ button {
   justify-content: center;
 }
 
+
+
+.producto:hover {
+  transform: scale(1.05);
+}
 .producto {
-  width: 300px;
+  width: 250px; 
   padding: 1em;
   background-color: #f9f9f9;
   border: 1px solid #ddd;
@@ -46,25 +51,43 @@ button {
   text-align: center;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   transition: transform 0.3s;
-}
-
-.producto:hover {
-  transform: scale(1.05);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
 }
 
 .producto img {
-  width: 100%;
-  height: auto;
+  max-width: 100%;
+  height: 150px; 
+  object-fit: contain; 
   border-radius: 10px;
+  margin-bottom: 10px;
+}
+
+.producto h3 {
+  font-size: 16px; 
+  margin: 10px 0;
+}
+
+.producto p {
+  font-size: 14px; 
 }
 
 .precio {
-  display: block;
-  margin-top: 0.5em;
-  font-size: 1.1rem;
+  font-size: 16px;
   font-weight: bold;
   color: #E30000;
+  margin-top: 10px;
 }
+
+.productos {
+  display: flex;
+  flex-wrap: wrap; /* Permite que los productos se alineen en varias filas */
+  gap: 20px; /* Espaciado entre productos */
+  justify-content: center; /* Centra los productos en la página */
+}
+
 
 /* Pop-up del producto */
 .pop-up {
@@ -106,4 +129,157 @@ button {
   height: auto;
   border-radius: 10px;
   margin-bottom: 20px;
+}
+.filtros {
+  display: flex;
+  align-items: center; 
+  justify-content: space-between; 
+  gap: 10px; 
+  padding: 10px 20px;
+  background-color: #f8f8f8;
+  border: 1px solid #ddd;
+  border-radius: 8px; 
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); 
+  margin: 20px auto;
+  max-width: 100%;
+  overflow-x: auto; 
+}
+
+.filtros input,
+.filtros select,
+.filtros button {
+  padding: 8px 12px;
+  font-size: 14px; 
+  border: 1px solid #ccc; 
+  border-radius: 5px; 
+  outline: none; 
+  flex: 1; 
+  min-width: 120px; 
+}
+
+.filtros input[type="text"],
+.filtros input[type="number"] {
+  flex: 2; 
+}
+
+.filtros button {
+  background-color: #005BC2;
+  color: white; 
+  border: none; 
+  cursor: pointer; 
+  flex: 1; 
+  transition: background-color 0.3s ease; 
+}
+
+.filtros button:hover {
+  background-color: #004494;
+}
+
+.filtros h2 {
+  margin-right: 10px; 
+  flex: 1; 
+  white-space: nowrap; 
+}
+
+
+/* Pop-up del producto */
+.pop-up {
+  display: none;
+  position: fixed;
+  z-index: 1000;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.8); 
+}
+
+.pop-up-content {
+  background-color: #fff;
+  margin: 5% auto;
+  padding: 20px;
+  border-radius: 15px;
+  width: 90%;
+  max-width: 600px;
+  text-align: center;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.5); 
+  overflow: hidden;
+  animation: pop-up-animation 0.3s ease-in-out; 
+}
+
+/* Animación */
+@keyframes pop-up-animation {
+  from {
+    transform: scale(0.8);
+    opacity: 0;
+  }
+  to {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+.cerrar-pop-up {
+  color: #333;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+  cursor: pointer;
+  margin-right: -10px;
+  position: relative;
+  top: -10px;
+}
+
+.cerrar-pop-up:hover {
+  color: red;
+}
+
+.pop-up-image {
+  max-width: 80%;
+  height: auto;
+  border-radius: 10px;
+  margin: 20px 0;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+}
+
+.pop-up-content h3 {
+  font-size: 1.8rem;
+  color: #005BC2; 
+  margin-bottom: 10px;
+}
+
+.pop-up-content p {
+  font-size: 1.1rem;
+  color: #333;
+  margin: 10px 0;
+}
+
+.pop-up-content .precio {
+  font-size: 1.4rem;
+  font-weight: bold;
+  color: #E30000; 
+  margin-top: 15px;
+}
+
+.pop-up-content .descripcion {
+  font-size: 1rem;
+  color: #666; 
+  margin-top: 10px;
+  line-height: 1.6; 
+}
+
+.pop-up-content .boton-compra {
+  display: inline-block;
+  padding: 10px 20px;
+  background-color: #005BC2;
+  color: #fff;
+  border-radius: 5px;
+  font-size: 1rem;
+  text-decoration: none;
+  margin-top: 15px;
+  transition: background-color 0.3s ease-in-out;
+}
+
+.pop-up-content .boton-compra:hover {
+  background-color: #0041a1; 
 }

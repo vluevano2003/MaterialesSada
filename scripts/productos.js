@@ -19,6 +19,20 @@ document.addEventListener('DOMContentLoaded', () => {
   const popUpDisponibilidad = document.getElementById('disponibilidad');
   const popUpDescripcion = document.getElementById('descripcion');
 
+  filtroPrecio.addEventListener('input', () => {
+    if (parseFloat(filtroPrecio.value) < 0) {
+      filtroPrecio.value = ''; 
+    }
+  });
+
+  filtroNombre.addEventListener('keydown', (event) => {
+    if (event.key === 'Enter') {
+      filtrarProductos();
+    }
+  });
+
+  
+
   const productosRef = collection(db, "productos");
   const productos = [];
   const categorias = new Set();

@@ -34,3 +34,7 @@ p {
 .map {
   flex: 1;
 }
+
+.footer-container p, .footer-bottom p {
+  color: white;
+}
