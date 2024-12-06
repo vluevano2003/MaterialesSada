@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mi Cuenta - Materiales SADA</title>
+    <link rel="stylesheet" href="/styles/cuenta.css">
+</head>
+<body>
+    <div class="module-container">
+        <h2>Cuenta de Usuario</h2>
+    
+        <!-- Formulario de datos generales -->
+        <form id="general-form">
+            <fieldset>
+                <legend>Datos Generales</legend>
+                <label for="username">Nombre de Usuario:</label>
+                <input type="text" id="username" required >
+    
+                <label for="email">Correo Electrónico:</label>
+                <input type="email" id="email" disabled >
+    
+                <label for="phone">Teléfono:</label>
+                <input type="text" id="phone" required >
+    
+                <label for="tipo">Tipo de Cuenta:</label>
+                <input type="text" id="tipo" disabled >
+            </fieldset>
+    
+            <button type="submit">Guardar Cambios</button>
+        </form>
+    
+        <!-- Formulario de cambio de contraseña -->
+        <form id="password-form">
+            <fieldset>
+                <legend>Cambiar Contraseña</legend>
+                
+                <label for="current-password">Contraseña Actual:</label>
+                <input type="password" id="current-password" required >
+    
+                <label for="new-password">Nueva Contraseña:</label>
+                <input type="password" id="new-password" minlength="6" required >
+    
+                <label for="confirm-password">Confirmar Contraseña:</label>
+                <input type="password" id="confirm-password" minlength="6" required >
+            </fieldset>
+    
+            <button type="submit">Actualizar Contraseña</button>
+        </form>
+    
+        <!-- Mensaje de estado -->
+        <div id="message"></div>
+    </div>
+    
+    <script type="module" src="/scripts/cuenta.js"></script>
+</body>
+</html>

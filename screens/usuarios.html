@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gestión de Usuarios</title>
+    <link rel="stylesheet" href="/styles/usuarios.css">
+</head>
+<body>
+    <section class="user-management">
+        <h1>Gestión de Usuarios</h1>
+        <div class="content-container">
+            <!-- Formulario para agregar un nuevo usuario -->
+            <div class="user-form">
+                <h2>Agregar Nuevo Usuario</h2>
+                <form id="add-user-form">
+                    <label for="username">Nombre de Usuario:</label>
+                    <input type="text" id="username" name="username" required>
+                    
+                    <label for="email">Correo Electrónico:</label>
+                    <input type="email" id="email" name="email" required>
+                    
+                    <label for="password">Contraseña:</label>
+                    <input type="password" id="password" name="password" required>
+                    
+                    <label for="phone">Teléfono:</label>
+                    <input type="tel" id="phone" name="phone" required>
+                    
+                    <label for="account-type">Tipo de Cuenta:</label>
+                    <select id="account-type" name="account-type" required>
+                        <option value="" disabled selected>Selecciona un tipo de cuenta</option> <!-- Opción de marcador de posición -->
+                        <option value="admin">Administrador</option>
+                        <option value="empleado">Empleado</option>
+                    </select>
+                
+                    
+                    <button type="submit">Crear Usuario</button>
+
+                    <div id="message-container"></div>
+                </form>
+            </div>
+
+            <!-- Lista de usuarios -->
+            <div class="user-list">
+                <h2>Usuarios Registrados</h2>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Nombre</th>
+                            <th>Correo</th>
+                            <th>Teléfono</th>
+                            <th>Tipo de Cuenta</th>
+                            <th>Acciones</th>
+                        </tr>
+                    </thead>
+                    <tbody id="user-table-body">
+                        <!-- Aquí se muestran las cuentas de usuario -->
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </section>
+
+    <script type="module" src="/scripts/usuarios.js"></script>
+
+</body>
+</html>

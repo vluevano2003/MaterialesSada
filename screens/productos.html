@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SADA - Productos</title>
+  <link rel="stylesheet" href="/styles/general.css">
+  <link rel="stylesheet" href="/styles/productos.css">
+</head>
+
+<body>
+
+  <!--Navegación-->
+  <nav>
+    <div class="banner">
+      <img src="/images/logo.jpeg" alt="Logo de Materiales SADA" class="logo">
+      <h1>Materiales SADA</h1>
+    </div>
+    <ul class="menu">
+      <li><a href="index.html">Menú</a></li>
+      <li><a href="productos.html">Productos</a></li>
+      <li><a href="informacion.html">Conócenos</a></li>
+    </ul>
+    <button class="login-button" onclick="window.location.href='login.html'">
+      <img src="/images/inicio-sesion.png" alt="Icono de usuario" class="user-icon">
+      Iniciar sesión
+    </button>
+  </nav>
+
+  <!-- Filtros -->
+  <section class="filtros">
+    <h2>Filtrar productos</h2>
+    <input type="text" id="filtro-nombre" placeholder="Buscar por nombre">
+    <select id="filtro-categoria">
+      <option value="">Todas las categorías</option>
+      <option value="Construcción">Construcción</option>
+      <option value="Herramientas">Herramientas</option>
+      <option value="Accesorios">Accesorios</option>
+    </select>
+    <select id="filtro-marca">
+      <option value="">Todas las marcas</option>
+      <option value="Marca A">Marca A</option>
+      <option value="Marca B">Marca B</option>
+      <option value="Marca C">Marca C</option>
+    </select>
+    <input type="number" id="filtro-preciomin" placeholder="Precio minimo" step="50">
+    <input type="number" id="filtro-precio" placeholder="Precio máximo" step="50">
+    <button id="boton-filtrar">Filtrar</button>
+    <button id="quitar-filtros">Quitar filtros</button>
+  </section>
+  
+
+  <!--Productos-->
+<div class="container">
+  <section class="container">
+    <h2>Productos</h2> <!-- Encabezado que identifica la sección -->
+    <div id="productos-container" class="productos"></div>
+  </section>
+</div>
+
+
+
+  <!-- Pop-up para detalles del producto -->
+  <div id="producto" class="pop-up">
+    <div class="pop-up-content">
+      <span id="cerrar" class="cerrar-pop-up">&times;</span>
+      <img id="imagen" src="https://via.placeholder.com/150" alt="Imagen del producto" class="pop-up-image">
+      <h3 id="nombre">Nombre del Producto</h3>
+      <p id="precio"></p>
+      <p id="categoria"></p>
+      <p id="marca"></p>
+      <p id="disponibilidad"></p>
+      <p id="descripcion"></p>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <footer>
+    <div class="footer-container">
+      <div class="footer-logo">
+        <img src="/images/logo.jpeg" alt="Logo de Materiales SADA" class="footer-image">
+        <h2>Materiales SADA</h2>
+      </div>
+      <div class="footer-info">
+        <p>Dirección: Lázaro Cárdenas No. 1705 Col. Puerto México Coatzacoalcos, Ver.</p>
+        <p>Teléfono: (+52) 9211101741</p>
+        <p>Email: m2gise@hotmail.com</p>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>&copy; 2024 Materiales SADA. Todos los derechos reservados.</p>
+    </div>
+  </footer>
+
+  <script type="module" src="/scripts/productos.js"></script>
+</body>
+
+</html>
