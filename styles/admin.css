@@ -15,9 +15,6 @@ html, body {
     margin: 0;
     
 }
-#module-frame {
-    border: none; /* Elimina el borde */
-}
 
 .navbar ul {
     list-style-type: none;
