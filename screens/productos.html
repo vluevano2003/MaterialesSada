@@ -44,22 +44,29 @@
       <option value="Marca B">Marca B</option>
       <option value="Marca C">Marca C</option>
     </select>
-    <input type="number" id="filtro-precio" placeholder="Precio máximo">
+    <input type="number" id="filtro-preciomin" placeholder="Precio minimo" step="50">
+    <input type="number" id="filtro-precio" placeholder="Precio máximo" step="50">
     <button id="boton-filtrar">Filtrar</button>
     <button id="quitar-filtros">Quitar filtros</button>
   </section>
+  
 
   <!--Productos-->
+<div class="container">
   <section class="container">
+    <h2>Productos</h2> <!-- Encabezado que identifica la sección -->
     <div id="productos-container" class="productos"></div>
   </section>
+</div>
+
+
 
   <!-- Pop-up para detalles del producto -->
   <div id="producto" class="pop-up">
     <div class="pop-up-content">
       <span id="cerrar" class="cerrar-pop-up">&times;</span>
-      <img id="imagen" src="" alt="Imagen del producto" class="pop-up-image">
-      <h3 id="nombre"></h3>
+      <img id="imagen" src="https://via.placeholder.com/150" alt="Imagen del producto" class="pop-up-image">
+      <h3 id="nombre">Nombre del Producto</h3>
       <p id="precio"></p>
       <p id="categoria"></p>
       <p id="marca"></p>

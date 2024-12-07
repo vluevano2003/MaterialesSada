@@ -6,6 +6,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const filtroCategoria = document.getElementById('filtro-categoria');
   const filtroMarca = document.getElementById('filtro-marca');
   const filtroPrecio = document.getElementById('filtro-precio');
+  const filtroPrecioMin = document.getElementById('filtro-preciomin');
   const botonFiltrar = document.getElementById('boton-filtrar');
   const botonQuitarFiltros = document.getElementById('quitar-filtros');
   const productosContainer = document.getElementById('productos-container');
@@ -18,6 +19,20 @@ document.addEventListener('DOMContentLoaded', () => {
   const popUpMarca = document.getElementById('marca');
   const popUpDisponibilidad = document.getElementById('disponibilidad');
   const popUpDescripcion = document.getElementById('descripcion');
+
+  filtroPrecio.addEventListener('input', () => {
+    if (parseFloat(filtroPrecio.value) < 0) {
+      filtroPrecio.value = ''; 
+    }
+  });
+
+  filtroNombre.addEventListener('keydown', (event) => {
+    if (event.key === 'Enter') {
+      filtrarProductos();
+    }
+  });
+
+  
 
   const productosRef = collection(db, "productos");
   const productos = [];
@@ -111,13 +126,15 @@ document.addEventListener('DOMContentLoaded', () => {
     const categoria = filtroCategoria.value;
     const marca = filtroMarca.value;
     const precioMax = parseFloat(filtroPrecio.value) || Infinity;
+    const preciomin = parseFloat(filtroPrecioMin.value) || 0;
 
     const productosFiltrados = productos.filter(producto => {
       const coincideNombre = producto.nombre.toLowerCase().includes(nombre);
       const coincideCategoria = categoria === '' || producto.categoria === categoria;
       const coincideMarca = marca === '' || producto.marca === marca;
       const coincidePrecio = producto.precio <= precioMax;
-      return coincideNombre && coincideCategoria && coincideMarca && coincidePrecio;
+      const coincidePrecioMin= producto.precio >= preciomin;
+      return coincideNombre && coincideCategoria && coincideMarca && coincidePrecio && coincidePrecioMin;
     });
 
     mostrarProductos(productosFiltrados);
