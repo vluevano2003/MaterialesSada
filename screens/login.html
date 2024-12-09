@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Iniciar Sesión - Materiales SADA</title>
+    <link rel="stylesheet" href="/styles/general.css">
+    <link rel="stylesheet" href="/styles/login.css">
+</head>
+<body>
+    <div class="container">
+        <!-- Imagen -->
+        <div class="image">
+            <img src="/images/anuncio1.jpg" alt="Imagen de bienvenida">
+        </div>
+
+        <!-- Formulario -->
+        <div class="form">
+            <a href="../index.html" class="back-button">←</a>
+            <h2>Iniciar Sesión</h2>
+            <form id="login-form">
+                <label for="username">Correo Electrónico:</label>
+                <input type="email" id="username" name="username" required>
+
+                <label for="password">Contraseña:</label>
+                <input type="password" id="password" name="password" required>
+
+                <button type="submit">Ingresar</button>
+            </form>
+
+            <!-- Mensaje de alerta -->
+            <div id="alert-message" class="alert"></div>
+
+            <div class="forgot-password">
+                <a href="#" id="forgot-password-link">¿Olvidaste tu contraseña?</a>
+            </div>
+        </div>
+    </div>
+
+    <script type="module" src="/scripts/firebaseConfig.js"></script>
+    <script type="module" src="/scripts/login.js"></script>
+</body>
+</html>
