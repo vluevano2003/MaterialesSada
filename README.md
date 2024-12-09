@@ -1,39 +1,55 @@
 # Sistema de Gestión de Inventario y Control de Ventas - Materiales SADA
 
-## Objetivo
-El sistema de gestión de inventarios y control de ventas de Materiales SADA es una aplicación web que facilita a los clientes la exploración de productos, mientras optimiza las operaciones internas de la empresa. Proporciona a los administradores herramientas para gestionar inventarios, ventas y cuentas de usuario de manera eficiente. Este sistema busca mantener un control de stock en tiempo real y ofrecer información actualizada sobre productos y servicios, mejorando la experiencia de compra.
+## Descripción del Proyecto
+Este proyecto consiste en una aplicación web diseñada para optimizar la gestión de inventarios y ventas en Materiales SADA. Proporciona una plataforma eficiente y accesible que permite a los clientes explorar productos disponibles y a los administradores gestionar inventarios, ventas y cuentas de usuario.
 
-## Alcance
-El sistema permite a los clientes explorar el catálogo de productos de Materiales SADA y a los administradores gestionar el inventario, las ventas y las cuentas de usuario.
+## Equipo de Trabajo
+- [Víctor Adrián Luévano Mondragón](https://github.com/VLuevano) (S21017301)
+- [Christian Jair Rodríguez Hernández](https://github.com/Christian04022003) (S21017296)
+- [Brian Michel Vázquez Grimaldo](https://github.com/BrianGrimaldo) (S21021769)
 
+## Tecnologías Utilizadas
+- **Frontend**: HTML, CSS, JavaScript
+- **Backend y Base de Datos**: Firebase (Firestore y Authentication)
+
+## Requisitos del Sistema
+- Navegador moderno compatible con HTML5, CSS3 y JavaScript.
+- Node.js (opcional para pruebas locales con herramientas de desarrollo).
+
+## Instalación y Ejecución
+
+### Instrucciones
+1. Clona este repositorio:
+   ```bash
+   git clone https://github.com/VLuevano/MaterialesSada.git
+   ```
+2. Navega al directorio del proyecto:
+   ```bash
+   cd MaterialesSada
+   ```
+3. No es necesario configurar Firebase, ya que la configuración está incluida en el repositorio.
+4. Abre el archivo `index.html` en un navegador para iniciar la aplicación.
+
+## Funcionalidades
 ### Vista del Cliente
-Diseñada para los clientes, la interfaz incluye:
-- **Menú Principal**: Espacio para mostrar anuncios, promociones e información general sobre la empresa.
-- **Sección de Productos**: Catálogo de productos con opciones de filtrado (por categoría, precio, etc.). Los clientes pueden ver la disponibilidad, descripción y detalles de cada producto.
-- **Información de la Empresa**: Misión, visión y datos de contacto de la empresa.
+- Exploración de productos con filtros por categoría y precio.
+- Visualización de disponibilidad, descripción y detalles de los productos.
 
 ### Vista del Administrador
-Disponible solo para cuentas de administrador, esta vista incluye herramientas avanzadas para la gestión:
-- **Gestión de Productos**: Permite agregar, modificar o eliminar productos, actualizando el stock en tiempo real para que los clientes vean la disponibilidad precisa.
-- **Control de Ventas Diarias**: Registro de ventas con los productos vendidos y sus cantidades para un seguimiento preciso de las transacciones.
-- **Control de Stock**: Actualización automática del inventario al registrar ventas o añadir nuevo stock.
-- **Gestión de Cuentas de Usuarios**: Permisos exclusivos para el administrador principal en la creación, modificación y eliminación de cuentas.
+- Inicio de sesión exclusivo para administradores.
+- Gestión de productos: agregar, modificar, consultar y eliminar.
+- Gestión de usuarios: creación, modificación, consulta y eliminación de cuentas.
 
-## Funciones del Sistema
+## Extensiones Futuras
+- Migración a un servidor dedicado o servicio de alojamiento web.
+- Integración de métodos de pago en línea.
+- Creación de una versión móvil.
 
-### Inicio de Sesión y Recuperación de Contraseña
-- **Inicio de Sesión**: Todos los usuarios deben autenticarse con nombre de usuario y contraseña.
-- **Recuperación de Contraseña**: Opción de recuperación mediante un código de verificación enviado por correo o teléfono.
-- **Roles de Acceso**: Solo el administrador principal tiene acceso completo a todas las funciones, incluyendo la gestión de cuentas.
-
-### Módulo de Inventario
-- **Agregar Productos**: Los administradores pueden registrar nuevos productos con detalles como nombre, categoría, precio, proveedor y cantidad inicial.
-- **Modificar Productos**: Actualización de cualquier información sobre los productos existentes.
-- **Consultar Productos**: Listado de productos con opciones de filtrado (categoría, precio, disponibilidad).
-- **Eliminar Productos**: Opción para eliminar productos que ya no están disponibles o que la empresa ya no desea vender.
-
-### Módulo de Gestión de Usuarios
-- **Agregar Cuenta de Usuario**: Creación de nuevas cuentas de usuario con datos como nombre, contraseña, correo y teléfono.
-- **Modificar Cuenta de Usuario**: Actualización de la información de cuenta de los administradores.
-- **Consulta de Cuentas Activas**: El administrador principal puede visualizar todas las cuentas activas.
-- **Eliminar Cuenta de Usuario**: El administrador principal puede eliminar cuentas que ya no sean necesarias.
+## Contribuciones
+Contribuciones son bienvenidas. Por favor, sigue los pasos habituales:
+1. Realiza un fork del repositorio.
+2. Crea una rama para tus cambios:
+   ```bash
+   git checkout -b feature/mi-nueva-funcionalidad
+   ```
+3. Envía un pull request describiendo tus cambios.
