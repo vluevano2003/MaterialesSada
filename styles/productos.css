@@ -5,9 +5,20 @@
 }
 
 .filtros {
-  display: flex;
-  gap: 10px;
+
   margin: 20px;
+  display: flex;
+  flex-wrap: nowrap;       
+  align-items: center;     
+  justify-content: center; 
+  gap: 15px;               
+  padding: 20px;
+  background-color: #f0f4f8;
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  max-width: 100%;
+  overflow-x: auto; 
 }
 
 button {
@@ -233,111 +244,4 @@ button {
 
 .pop-up-content .boton-compra:hover {
   background-color: #0041a1; 
-}
-nav ul.menu li a {
-  text-decoration: none;
-  color: #005BC2;
-  font-weight: bold;
-  transition: color 0.3s ease;
-}
-
-nav ul.menu li a:hover {
-  color: #004494;
-}
-
-.login-button {
-  padding: 10px 15px;
-  border-radius: 5px;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-  transition: background-color 0.3s, transform 0.3s;
-}
-
-.login-button:hover {
-  background-color: #004494;
-  transform: scale(1.05);
-}
-.filtros {
-  padding: 20px;
-  border-radius: 10px;
-  background-color: #f0f0f0;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-}
-
-.filtros button {
-  background-color: #007BFF;
-  color: white;
-  font-weight: bold;
-  border-radius: 5px;
-  transition: transform 0.2s, background-color 0.3s;
-}
-
-.filtros button:hover {
-  background-color: #005BC2;
-  transform: scale(1.1);
-}
-
-.producto {
-  background-color: #ffffff;
-  border: 1px solid #ddd;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-  transition: box-shadow 0.3s, transform 0.3s;
-}
-
-.producto:hover {
-  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
-  transform: translateY(-5px);
-}
-.pop-up-content {
-  background: linear-gradient(to bottom right, #fefefe, #f9f9f9);
-  animation: fadeIn 0.3s ease-in-out;
-  color: #333;
-}
-
-.pop-up-content h3 {
-  color: #005BC2;
-  font-weight: bold;
-}
-
-.pop-up-content .boton-compra {
-  background: #005BC2;
-  padding: 12px 18px;
-  border-radius: 5px;
-  transition: background-color 0.3s ease-in-out, transform 0.2s;
-}
-
-.pop-up-content .boton-compra:hover {
-  background-color: #004494;
-  transform: scale(1.1);
-}
-
-@keyframes fadeIn {
-  from {
-    opacity: 0;
-    transform: scale(0.8);
-  }
-  to {
-    opacity: 1;
-    transform: scale(1);
-  }
-}
-footer {
-  background-color: #005BC2;
-  color: #fff;
-  padding: 20px 0;
-  text-align: center;
-}
-
-footer p {
-  margin: 5px 0;
-  font-size: 14px;
-}
-
-.footer-logo img {
-  width: 50px;
-  margin-bottom: 10px;
-}
-
-.footer-info {
-  font-size: 0.9rem;
-  margin-top: 10px;
 }
