@@ -31,6 +31,11 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   });
 
+  document.addEventListener("keydown", (e) => {
+    if (e.key === "Escape") {
+      document.getElementById("producto").style.display = "none";
+    }
+  });
   
 
   const productosRef = collection(db, "productos");
