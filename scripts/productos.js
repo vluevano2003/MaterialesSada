@@ -131,15 +131,13 @@ document.addEventListener('DOMContentLoaded', () => {
     const categoria = filtroCategoria.value;
     const marca = filtroMarca.value;
     const precioMax = parseFloat(filtroPrecio.value) || Infinity;
-    const preciomin = parseFloat(filtroPrecioMin.value) || 0;
 
     const productosFiltrados = productos.filter(producto => {
       const coincideNombre = producto.nombre.toLowerCase().includes(nombre);
       const coincideCategoria = categoria === '' || producto.categoria === categoria;
       const coincideMarca = marca === '' || producto.marca === marca;
       const coincidePrecio = producto.precio <= precioMax;
-      const coincidePrecioMin= producto.precio >= preciomin;
-      return coincideNombre && coincideCategoria && coincideMarca && coincidePrecio && coincidePrecioMin;
+      return coincideNombre && coincideCategoria && coincideMarca && coincidePrecio;
     });
 
     mostrarProductos(productosFiltrados);
