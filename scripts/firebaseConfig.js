@@ -6,13 +6,12 @@ import { getStorage } from "https://www.gstatic.com/firebasejs/10.6.0/firebase-s
 
 // Configuración del proyecto Firebase
 const firebaseConfig = {
-  apiKey: "AIzaSyBLzY7Ceh2UljhXCWJ7gSTGbqEn83AWEwo",
-  authDomain: "materiales-sada-5af07.firebaseapp.com",
-  projectId: "materiales-sada-5af07",
-  storageBucket: "materiales-sada-5af07.appspot.com",
-  messagingSenderId: "459233219482",
-  appId: "1:459233219482:web:75dfebc75db0b848b52023",
-  measurementId: "G-LPC1CK8ESR",
+  apiKey: "AIzaSyAvt2gcEF_LAcqjjGtscDVVXdsU7dFs2uc",
+  authDomain: "sada-36b96.firebaseapp.com",
+  projectId: "sada-36b96",
+  storageBucket: "sada-36b96.firebasestorage.app",
+  messagingSenderId: "998976500687",
+  appId: "1:998976500687:web:ff3561018e141d391758ba"
 };
 
 // Inicializar Firebase

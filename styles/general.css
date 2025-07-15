@@ -9,6 +9,13 @@ body {
   font-family: Arial, sans-serif;
   background-color: #f9f9f9;
   text-align: center;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+main, .container {
+  flex: 1;
 }
 
 /* Estilos de Navegación */
